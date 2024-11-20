@@ -30,8 +30,7 @@ Technologies Used:
 3. **Activate the virtual env (gitbash)**
    ```bash
    source venv/Scripts/activate
-
-
+   
 4. **Activate the virtual env (cmd)**
    ```bash
    venv/Scripts/activate.bat
@@ -43,5 +42,3 @@ Technologies Used:
 5. **Run Project**
    ```bash
    fastapi dev main.py
-   
-   
