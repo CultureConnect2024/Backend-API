@@ -7,7 +7,7 @@ from fastapi import HTTPException, APIRouter, Body
 
 # find service_account.json
 base_dir = os.path.dirname(os.path.abspath(__file__))  
-cred_path = os.path.join(base_dir, '..', '..', 'service_account.json')
+cred_path = os.path.join(base_dir, '..', '..', 'firebase-account/service_account.json')
 
 # Initial firebase admin
 cred = credentials.Certificate(cred_path)
