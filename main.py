@@ -4,8 +4,7 @@ from app.config import config
 import firebase_admin
 from dotenv import load_dotenv
 import pathlib
-import uvicorn
-import os
+
 from app.routes.userRoutes import router as users_router
 from app.routes.healthchekRoutes import router as healthcheck_router
 from app.auth.auth import router as auth_router
@@ -26,9 +25,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8080))  # Cloud Run menetapkan PORT
-    uvicorn.run(app, host="0.0.0.0", port=port)
+
 
 @app.get("/", response_class=HTMLResponse)
 def root():
