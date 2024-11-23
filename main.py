@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import pathlib
 
 from app.routes.userRoutes import router as users_router
-from app.routes.healthchekRoutes import router as healthcheck_router
+# from app.routes.healthchekRoutes import router as healthcheck_router
 from app.auth.auth import router as auth_router
 from fastapi.middleware.cors import CORSMiddleware
 # basedir = pathlib.Path(__file__).parents[1]
@@ -33,6 +33,6 @@ def root():
 
 app.include_router(users_router, prefix="/users", tags=["Users"])
 app.include_router(auth_router, prefix="/auth", tags=["Auth"])
-app.include_router(healthcheck_router, prefix="/healthcheck", tags=["Healthcheck"])
+# app.include_router(healthcheck_router, prefix="/healthcheck", tags=["Healthcheck"])
 
 
