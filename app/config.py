@@ -12,5 +12,5 @@ class Config:
     DB_PASS = os.getenv('DB_PASS')
     DB_PORT = os.getenv('DB_PORT')
 
-# Membuat instance config
+# create instance config
 config = Config()
