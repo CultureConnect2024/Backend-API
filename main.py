@@ -45,15 +45,23 @@ app.include_router(
     prefix="/healthcheck", 
     tags=["Healthcheck"]
 )
-try:
-    auth_router = __import__("app.auth.auth", fromlist=["router"]).router
-    app.include_router(auth_router, prefix="/auth", tags=["Auth"])
-except ImportError as e:
-    print(f"Error importing auth router: {e}")
-    # Anda bisa menambahkan log atau penanganan error lain jika diperlukan
-except Exception as e:
-    print(f"An unexpected error occurred: {e}")
-    # Anda bisa menambahkan penanganan error lain atau log di sini
+
+app.include_router(
+    __import__("app.auth.authRoutes", fromlist=["router"]).router, 
+    prefix="/auth", 
+    tags=["Auth"]
+)
+
+
+# try:
+#     auth_router = __import__("app.auth.authRoutes", fromlist=["router"]).router
+#     app.include_router(auth_router, prefix="/auth", tags=["Auth"])
+# except ImportError as e:
+#     print(f"Error importing auth router: {e}")
+#     # Anda bisa menambahkan log atau penanganan error lain jika diperlukan
+# except Exception as e:
+#     print(f"An unexpected error occurred: {e}")
+#     # Anda bisa menambahkan penanganan error lain atau log di sini
 
 
 # app.include_router(users_router, prefix="/users", tags=["Users"])
