@@ -40,8 +40,8 @@ app.include_router(
     tags=["Healthcheck"]
 )
 
-app.include_router(
-    __import__("app.auth.auth", fromlist=["router"]).router, 
-    prefix="/auth", 
-    tags=["Auth"]
-)
+# app.include_router(
+#     __import__("app.auth.auth", fromlist=["router"]).router, 
+#     prefix="/auth", 
+#     tags=["Auth"]
+# )
