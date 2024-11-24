@@ -4,6 +4,7 @@ from fastapi import HTTPException, APIRouter, Header
 import os
 from fastapi import HTTPException, APIRouter, Body
 
+router = APIRouter()
 
 # find service_account.json
 base_dir = os.path.dirname(os.path.abspath(__file__))  
@@ -21,11 +22,9 @@ def verify_firebase_token(id_token: str):
         raise HTTPException(status_code=401, detail="Invalid token")
 
 
-router = APIRouter()
 
 
-
-@router.post("/")
+@router.post("/login")
 async def login(request: dict = Body(...)):
     try:
         id_token = request.get('id-token')  
