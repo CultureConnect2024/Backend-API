@@ -1,18 +1,15 @@
-# Menggunakan base image untuk Python
-FROM python:3.10-slim
+FROM python:3.13.0
 
-# Set working directory
 WORKDIR /app
 
-# Install dependencies
+RUN pip install --upgrade pip
+
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
-# Salin aplikasi ke dalam container
-COPY . /app
+RUN pip install -r requirements.txt
 
-# Menetapkan variabel lingkungan untuk PORT
-ENV PORT 8080
+COPY . .
 
-# Jalankan aplikasi dengan uvicorn
-CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "${PORT}"]
+EXPOSE 8080
+
+CMD ["uvicorn", "--host", "0.0.0.0", "--port", "8080", "main:app"]
