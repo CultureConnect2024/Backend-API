@@ -8,7 +8,6 @@ Key Features:
 - Predictions
 - User Management 
 - Blog Management
-- Scalable Deployment (docker)
 
 Technologies Used:
 - python
